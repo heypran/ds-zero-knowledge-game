@@ -40,3 +40,14 @@ npm run build-prod
 
 Everyone is welcome to contribute to this project. Feel free to open an issue if you have question or found a bug.
 
+### Reference
+ - https://github.com/harmony-one/docs-home/blob/master/developers/smart-contracts/smart-contract-development-using-truffle.md
+ - https://www.npmjs.com/package/@harmony-js/core
+ - https://faucet.pops.one/
+ - https://docs.harmony.one/home/developers/network-and-faucets
+ - https://ide.harmony.one
+ - https://docs.harmony.one/home/developers/wallets/metamask/using-metamask-with-harmony-smart-contracts
+ - https://cointool.app/createWallet/eth
+ 
+ ### Test 
+ - one1unu6xc0zulm3jmcerd9a5j6yzw9eyevt9uqftz  verfier

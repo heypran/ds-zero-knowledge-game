@@ -1,26 +1,24 @@
-import { useCallback } from 'react';
+import { useCallback } from "react";
 
-import { useWeb3React, UnsupportedChainIdError } from '@web3-react/core';
-import { UserRejectedRequestError as UserRejectedRequestErrorInjected } from '@web3-react/injected-connector';
+import { useWeb3React, UnsupportedChainIdError } from "@web3-react/core";
+import { UserRejectedRequestError as UserRejectedRequestErrorInjected } from "@web3-react/injected-connector";
 import {
   UserRejectedRequestError as UserRejectedRequestErrorWalletConnect,
   WalletConnectConnector,
-} from '@web3-react/walletconnect-connector';
+} from "@web3-react/walletconnect-connector";
 
-import { setupNetwork } from '@/utils/wallet';
+import { setupNetwork } from "@/utils/wallet";
 
-import { ConnectorNames, connectorsByName } from '../utils/web3react';
+import { ConnectorNames, connectorsByName } from "../utils/web3react";
 
-export const connectorLocalStorageKey = 'connectorId';
+export const connectorLocalStorageKey = "connectorId";
 
 const useAuth = () => {
   const { activate, deactivate } = useWeb3React();
   // const { toastError } = useToast()
 
   const login = useCallback((connectorID: ConnectorNames) => {
-    console.log('login....');
     const connector = connectorsByName[connectorID];
-    console.log(`connector------_>`, connector);
 
     if (connector) {
       activate(connector, async (error: Error) => {
@@ -33,7 +31,7 @@ const useAuth = () => {
           window.localStorage.removeItem(connectorLocalStorageKey);
 
           if (error) {
-            console.log('Provider Error', 'No provider was found');
+            console.log("Provider Error", "No provider was found");
           } else if (
             error instanceof UserRejectedRequestErrorInjected ||
             error instanceof UserRejectedRequestErrorWalletConnect
@@ -43,8 +41,8 @@ const useAuth = () => {
               walletConnector.walletConnectProvider = null;
             }
             console.log(
-              'Authorization Error',
-              'Please authorize to access your account'
+              "Authorization Error",
+              "Please authorize to access your account"
             );
           } else {
             console.log(error.name, error.message);
@@ -52,7 +50,7 @@ const useAuth = () => {
         }
       });
     } else {
-      console.log("Can't find connector", 'The connector config is wrong');
+      console.log("Can't find connector", "The connector config is wrong");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
