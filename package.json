@@ -13,9 +13,7 @@
     "build-types": "tsc --noEmit --pretty",
     "prepare": "husky install",
     "export:solverify": "snarkjs zkey export solidityverifier src/utils/tempZk/spawning_0001.zkey ./contracts/verifier.sol",
-    "contract:compile":"truffle compile"
-    
-
+    "contract:compile": "truffle compile"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
@@ -48,6 +46,8 @@
     "@typescript-eslint/eslint-plugin": "^5.8.0",
     "@typescript-eslint/parser": "^5.8.0",
     "autoprefixer": "^10.4.0",
+    "axios": "^0.24.0",
+    "circomlib": "^2.0.2",
     "cross-env": "^7.0.3",
     "cssnano": "^5.0.14",
     "eslint": "^8.5.0",
@@ -63,11 +63,24 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.4",
+    "node-fetch": "^3.1.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.5",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
     "typescript": "^4.5.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "license": "ISC"
 }
