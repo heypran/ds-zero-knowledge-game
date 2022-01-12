@@ -26,7 +26,7 @@ IMoveVerfiy moveVerifier;
        bool isOccupied;
    }
    struct Planet {
-       uint32 planetResourceType;
+       uint32 planetResourceType; // R function
        uint32 population;
        uint256 resourcesLeft;
        uint32 pendingHarvest;
@@ -89,17 +89,7 @@ IMoveVerfiy moveVerifier;
  
        planetLocationMap[_location].pendingHarvest += planetLocationMap[_location].planetResourceType;
       
-       // Initialize player data
-       //isPlayerInitialized[msg.sender] = true;
-       // playerIds.push(msg.sender);
- 
-       // Initialize planet information
-       //_initializePlanet(_location, true);
-       //planets[_location].owner = msg.sender;
-       //planets[_location].population = 75000;
-       //_updateWorldRadius();
- 
-       //emit PlayerInitialized(msg.sender, _location);
+    
    }
  
 function movePlayer(
@@ -110,7 +100,7 @@ function movePlayer(
    ) public  {
  
        require( playerAddressMap[msg.sender].lastMovedTs  < block.timestamp - 30 seconds, "Are you gonna keep on moving?");
-      
+        require(playerAddressMap[msg.sender].location == _input[0],"Invalid previous location");
        //require(locationMap[_location].lastTime < block.timestamp - 5 minutes, "Location recently used!");
        //require(!locationMap[_location].isOccupied,"Location is already occupied");
        uint256 _oldLocation = _input[0];
@@ -169,10 +159,10 @@ function movePlayer(
      planetLocationMap[0x266b29bf96dfa0b6e9e7c877f91d950b85ec632180c93a10c82dc5acba821101].resourcesLeft=100;
 
 
-     planetLocationMap[0x105bb1ae3a8c33c2794db19ba79b1d74cfcc0edaebeb01923867af864a0da744].planetResourceType=1;
+     planetLocationMap[0x105bb1ae3a8c33c2794db19ba79b1d74cfcc0edaebeb01923867af864a0da744].planetResourceType=2;
      planetLocationMap[0x105bb1ae3a8c33c2794db19ba79b1d74cfcc0edaebeb01923867af864a0da744].resourcesLeft=100;
 
-     planetLocationMap[0x24054239755d657c8a10a3c95eaaafae3aa88f9b4bd31602b5737bf36c791d3b].planetResourceType=1;
+     planetLocationMap[0x24054239755d657c8a10a3c95eaaafae3aa88f9b4bd31602b5737bf36c791d3b].planetResourceType=3;
      planetLocationMap[0x24054239755d657c8a10a3c95eaaafae3aa88f9b4bd31602b5737bf36c791d3b].resourcesLeft=100;
 
     planetsInit=true;
