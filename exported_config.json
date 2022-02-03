@@ -1,0 +1,23 @@
+{
+  "env": "kovan",
+  "frontend": {
+    "supportedNetworkName": "the Harmony testnet",
+    "supportedNetwork": 1666700000
+  },
+  "snarkUrls": {
+    "circuit": "https://semaphoreui.blob.core.windows.net/snarks/circuit.json",
+    "provingKey": "https://semaphoreui.blob.core.windows.net/snarks/proving_key.bin"
+  },
+  "chain": {
+    "url": "https://api.s0.b.hmny.io",
+    "chainId": 1666700000,
+    "semaphoreTreeDepth": 20,
+    "deployKeyPath": "",
+    "contracts": {
+      "MiMC": "0x64FD7BfC115755408614337c9DA07ec189BD22eA",
+      "Semaphore": "0x9E94b4a0A8d1AF588dF90454Af29AC7754F0869e",
+      "SemaphoreClient": "0xeEC2Ed7233876D16389BfB67f201245Ece2319bc",
+      "oldSemaphoreClient": "0x5f7F706Af22A263320FEB8D1D481Abd6acc239A1"
+    }
+  }
+}

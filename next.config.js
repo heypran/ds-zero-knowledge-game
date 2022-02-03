@@ -4,18 +4,21 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   fs:false,
   fs:'empty'
 });
+const withTM = require('next-transpile-modules')(['bigint-conversion','@libsem/identity']); // pass the modules you would like to see transpiled
+const compose = require("next-compose");
 
-module.exports = withBundleAnalyzer({
+module.exports = compose([ [withTM],{
   poweredByHeader: false,
   trailingSlash: true,
   basePath: '',
   fs: false,
   fs:'empty',
-
+  crypto: "empty",
   // The starter code load resources from `public` folder with `router.basePath` in React components.
   // So, the source code is "basePath-ready".
   // You can remove `basePath` if you don't need it.
   reactStrictMode: true,
+  // experimental: { esmExternals: true },
   webpack: (config, {
     isServer
  }) => {
@@ -25,7 +28,9 @@ module.exports = withBundleAnalyzer({
           fs: false,
           stream:false,
           path:false,
-          crypto:false,
+          crypto:require.resolve('crypto-browserify'),
+          //"crypto-browserify": require.resolve('crypto-browserify'),
+          worker_threads:false,
           // http:false,
           // https:false,
           os:false
@@ -33,8 +38,9 @@ module.exports = withBundleAnalyzer({
        // /https://github.com/ethers-io/ethers.js/issues/998
        config.resolve.alias.https = "https-browserify";
        config.resolve.alias.http = "http-browserify";
+       
     }
 
     return config;
  }
-});
+}]);

@@ -1,9 +1,8 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from "react";
+import { useWeb3React } from "@web3-react/core";
+import Web3 from "web3";
 
-import { useWeb3React } from '@web3-react/core';
-import Web3 from 'web3';
-
-import { getWeb3NoAccount } from '@/utils/web3';
+import { getWeb3NoAccount } from "@/utils/web3";
 
 /**
  * Provides a web3 instance using the provider provided by useWallet
