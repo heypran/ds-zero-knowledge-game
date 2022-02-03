@@ -12,12 +12,7 @@ import {
   useDarkSpaceCoreContract,
   useVerifierContract,
 } from "@/hooks/useContract";
-import SnarkArgsHelper, {
-  generateWitness,
-  makeZkProof,
-  wasmFile,
-  zkey,
-} from "@/utils/zk/snarks";
+
 import { useWeb3React } from "@web3-react/core";
 import {
   genPlanetHash,
@@ -31,6 +26,7 @@ const Index = () => {
   const { login, logout } = useAuth();
   const { account } = useWeb3React();
   const darkSpaceCoreContract = useDarkSpaceCoreContract();
+
   const onVerify = async () => {
     console.log("calling initialize", account);
     try {
@@ -107,6 +103,14 @@ const Index = () => {
           Move
         </Button>
         <Button variant="outlined" onClick={() => genHash()}>
+          Generate Planet Hashes
+        </Button>
+        <Button
+          variant="outlined"
+          onClick={() => {
+            history.p;
+          }}
+        >
           Generate Planet Hashes
         </Button>
       </Box>
